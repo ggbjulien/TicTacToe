@@ -1,0 +1,11 @@
+.Cell {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(45, 55, 72);
+  color: #f8f8ff;
+  border: 1px solid #f8f8ff;
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

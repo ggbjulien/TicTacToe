@@ -1,0 +1,6 @@
+.Game {
+  display: grid;
+  grid-template: 1fr 3fr / 1fr 2fr 1fr;
+  min-height: 100vh;
+  background-color: #f8f8ff;
+}
