@@ -40,6 +40,29 @@ const Board = ({
     }
   };
 
+  const play = (row, col) => {
+    if (winner) return;
+
+    const updatedBoard = [...board];
+
+    if (!board[row][col]) {
+      updatedBoard[row][col] = playerTurn;
+      setBoard(updatedBoard);
+      if (checkWinner(row, col)) {
+        updateWinner(playerTurn);
+        updatePlayerScore(winner);
+      } else if (checkDraw()) {
+        return;
+      } else {
+        playerTurn === "X"
+          ? updatePlayerTurn(players.playerTwo.symbol)
+          : updatePlayerTurn(players.playerOne.symbol);
+      }
+    } else {
+      return;
+    }
+  };
+
   return <div className={styles.Board}>ROW</div>;
 };
 
