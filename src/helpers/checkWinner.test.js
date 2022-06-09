@@ -1,3 +1,5 @@
+import { checkRow, checkColumn, checkDiagonal } from "./checkWinner";
+
 describe("Testing winning case", () => {
   describe("Testing horizontal winning cases", () => {
     it("Should be true if player has 3 X's or O's three in a row horizontaly", () => {
