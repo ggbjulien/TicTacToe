@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   checkRow,
   checkColumn,
@@ -19,6 +19,11 @@ const Board = ({
   const [board, setBoard] = useState(
     [...Array(3)].map(() => Array(3).fill(null))
   );
+
+  useEffect(() => {
+    updatePlayerScore(winner);
+    // eslint-disable-next-line
+  }, [winner]);
 
   const checkWinner = (row, col) => {
     if (
