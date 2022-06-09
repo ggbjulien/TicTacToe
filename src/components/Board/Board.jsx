@@ -64,11 +64,22 @@ const Board = ({
     }
   };
 
+  const playAgain = () => {
+    updateWinner(null);
+    setBoard([...Array(3)].map(() => Array(3).fill(null)));
+    updatePlayerTurn(players.playerOne.symbol);
+  };
+
   return (
     <div className={styles.Board}>
       {board.map((row, index) => (
         <Row key={index} onClick={play} row={row} rowIndex={index} />
       ))}
+      {winner ? (
+        <button className={styles.PlayAgain} onClick={(e) => playAgain(e)}>
+          Play Again
+        </button>
+      ) : null}
     </div>
   );
 };
