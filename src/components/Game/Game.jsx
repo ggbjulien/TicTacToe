@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Board from "../Board/Board";
 
 import styles from "./Game.module.css";
 
@@ -34,7 +35,18 @@ const Game = () => {
     setWinner(winner);
   };
 
-  return <div className={styles.Game}>BOARD</div>;
+  return (
+    <div className={styles.Game}>
+      <Board
+        playerTurn={playerTurn}
+        players={players}
+        updatePlayerTurn={updatePlayerTurn}
+        updatePlayerScore={updatePlayerScore}
+        updateWinner={updateWinner}
+        winner={winner}
+      />
+    </div>
+  );
 };
 
 export default Game;
