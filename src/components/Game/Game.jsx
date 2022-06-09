@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Board from "../Board/Board";
+import Info from "../Info/Info";
 
 import styles from "./Game.module.css";
 
@@ -37,6 +38,7 @@ const Game = () => {
 
   return (
     <div className={styles.Game}>
+      <Info playerTurn={playerTurn} players={players} winner={winner} />
       <Board
         playerTurn={playerTurn}
         players={players}
