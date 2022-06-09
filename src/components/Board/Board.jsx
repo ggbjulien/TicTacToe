@@ -4,6 +4,7 @@ import {
   checkColumn,
   checkDiagonal,
 } from "../../helpers/checkWinner";
+import Row from "../Row/Row";
 
 import styles from "./Board.module.css";
 
@@ -63,7 +64,13 @@ const Board = ({
     }
   };
 
-  return <div className={styles.Board}>ROW</div>;
+  return (
+    <div className={styles.Board}>
+      {board.map((row, index) => (
+        <Row key={index} onClick={play} row={row} rowIndex={index} />
+      ))}
+    </div>
+  );
 };
 
 export default Board;
