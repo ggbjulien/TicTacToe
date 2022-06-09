@@ -17,18 +17,17 @@ const Game = () => {
   };
 
   const updatePlayerScore = () => {
-    if (winner === "X") {
-      setPlayers({
-        ...players,
-        playerOne: { ...players.playerOne, score: players.playerOne.score + 1 },
-      });
-    } else if (winner === "O") {
-      setPlayers({
-        ...players,
-        playerTwo: { ...players.playerTwo, score: players.playerTwo.score + 1 },
-      });
-    } else {
-      return;
+    if (winner) {
+      const updatedScores = { ...players };
+      if (winner === "X") {
+        updatedScores.playerOne.score += 1;
+        setPlayers(updatedScores);
+      } else if (winner === "O") {
+        updatedScores.playerTwo.score += 1;
+        setPlayers(updatedScores);
+      } else {
+        return;
+      }
     }
   };
 

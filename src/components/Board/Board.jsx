@@ -38,7 +38,10 @@ const Board = ({
   };
 
   const checkDraw = () => {
-    if (board.flat().every((cell) => cell)) {
+    const flattenedBoard = board.flat();
+    const draw = flattenedBoard.every((cell) => cell);
+
+    if (draw) {
       updateWinner("draw");
       return true;
     } else {
@@ -50,19 +53,22 @@ const Board = ({
     if (winner) return;
 
     const updatedBoard = [...board];
+    const cell = board[row][col];
+    const cellIsEmpty = !cell;
+    const playerOne = players.playerOne.symbol;
+    const playerTwo = players.playerTwo.symbol;
 
-    if (!board[row][col]) {
+    if (cellIsEmpty) {
       updatedBoard[row][col] = playerTurn;
       setBoard(updatedBoard);
       if (checkWinner(row, col)) {
         updateWinner(playerTurn);
-        updatePlayerScore(winner);
       } else if (checkDraw()) {
         return;
       } else {
         playerTurn === "X"
-          ? updatePlayerTurn(players.playerTwo.symbol)
-          : updatePlayerTurn(players.playerOne.symbol);
+          ? updatePlayerTurn(playerTwo)
+          : updatePlayerTurn(playerOne);
       }
     } else {
       return;
@@ -70,9 +76,12 @@ const Board = ({
   };
 
   const playAgain = () => {
+    const emptyBoard = [...Array(3)].map(() => Array(3).fill(null));
+    const playerOne = players.playerOne.symbol;
+
     updateWinner(null);
-    setBoard([...Array(3)].map(() => Array(3).fill(null)));
-    updatePlayerTurn(players.playerOne.symbol);
+    setBoard(emptyBoard);
+    updatePlayerTurn(playerOne);
   };
 
   return (
