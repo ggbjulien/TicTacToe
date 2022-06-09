@@ -6,9 +6,11 @@ const Info = ({ playerTurn, players, winner }) => {
     <div className={styles.Info}>
       <PlayerTurn playerTurn={playerTurn} winner={winner} />
       <div className={styles.Players}>
-        <div>PLAYER ONE</div>
-        <div>SCORE</div>
-        <div>PLAYER TWO</div>
+        <div className={styles.Player}>Player {players.playerOne.symbol}</div>
+        <div className={styles.PlayersScores}>
+          {players.playerOne.score} - {players.playerTwo.score}
+        </div>
+        <div className={styles.Player}>Player {players.playerTwo.symbol}</div>
       </div>
     </div>
   );

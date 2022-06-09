@@ -6,3 +6,10 @@
   font-size: 48px;
   color: rgb(45, 55, 72);
 }
+
+.Players {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 50%;
+}
