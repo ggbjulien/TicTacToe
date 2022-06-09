@@ -10,6 +10,30 @@ const Game = () => {
   });
   const [winner, setWinner] = useState(null);
 
+  const updatePlayerTurn = (nextPlayer) => {
+    setPlayerTurn(nextPlayer);
+  };
+
+  const updatePlayerScore = () => {
+    if (winner === "X") {
+      setPlayers({
+        ...players,
+        playerOne: { ...players.playerOne, score: players.playerOne.score + 1 },
+      });
+    } else if (winner === "O") {
+      setPlayers({
+        ...players,
+        playerTwo: { ...players.playerTwo, score: players.playerTwo.score + 1 },
+      });
+    } else {
+      return;
+    }
+  };
+
+  const updateWinner = (winner) => {
+    setWinner(winner);
+  };
+
   return <div className={styles.Game}>BOARD</div>;
 };
 
